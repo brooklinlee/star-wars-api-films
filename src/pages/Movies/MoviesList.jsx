@@ -9,7 +9,9 @@ const MoviesList = () => {
 
   useEffect(() => {
     const fetchMoviesIndex = async () => {
-      const index = await getMoviesList()
+      const moviesData = await index()
+      console.log(moviesData)
+      setMoviesIndex(moviesData.results)
     }
     fetchMoviesIndex()
   }, [])
