@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 // pages
 import Landing from './pages/Landing'
+import Movies from './pages/Movies/Movies'
 
 // components
 import NavBar from './components/Nav'
@@ -19,6 +20,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path='/' element={<Landing />}></Route>
+        <Route path='/movies' element={<Movies />}></Route>
       </Routes>
     </>
   )
