@@ -16,14 +16,14 @@ const MoviesList = () => {
     fetchMoviesIndex()
   }, [])
 
-
+  if (!moviesIndex.length) return <h4>Loading Movies...</h4>
 
   return (  
     <>
-    <h1>This is a Movies Index Component</h1>
+    <h1>All Star Wars Movies</h1>
     {/* map over films data to create a card for each */}
-    {moviesIndex.map((movie) => (
-      <div>
+    {moviesIndex.map((movie, id) => (
+      <div key={id}>
         {movie.title}
       </div>
     ))}
