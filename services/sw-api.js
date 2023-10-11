@@ -9,6 +9,18 @@ async function index() {
   }
 }
 
+async function show(movieId) {
+  try {
+    const res = await fetch(`${BASE_URL}films/${movieId}/`, {
+      method: 'GET'
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   index,
+  show
 }

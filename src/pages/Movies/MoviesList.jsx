@@ -1,15 +1,19 @@
 // npm modules
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
 // api
-import { index } from "../../../services/sw-api"
+// import { index } from "../../../services/sw-api"
+// import { show } from "../../../services/sw-api"
+
+import * as filmsService from '../../../services/sw-api'
 
 const MoviesList = () => {
   const [moviesIndex, setMoviesIndex] = useState([])
 
   useEffect(() => {
     const fetchMoviesIndex = async () => {
-      const moviesData = await index()
+      const moviesData = await  filmsService.index()
       // console.log(moviesData)
       setMoviesIndex(moviesData.results)
     }
@@ -24,7 +28,10 @@ const MoviesList = () => {
     {/* map over films data to create a card for each */}
     {moviesIndex.map((movie, id) => (
       <div key={id}>
-        {movie.title}
+        <Link
+          to={`/films/${movie.url.split('/').slice(-2, -1)}`}
+        >{movie.title}</Link>
+        
       </div>
     ))}
     </>
