@@ -10,7 +10,7 @@ const MoviesList = () => {
   useEffect(() => {
     const fetchMoviesIndex = async () => {
       const moviesData = await index()
-      console.log(moviesData)
+      // console.log(moviesData)
       setMoviesIndex(moviesData.results)
     }
     fetchMoviesIndex()
@@ -22,6 +22,11 @@ const MoviesList = () => {
     <>
     <h1>This is a Movies Index Component</h1>
     {/* map over films data to create a card for each */}
+    {moviesIndex.map((movie) => (
+      <div>
+        {movie.title}
+      </div>
+    ))}
     </>
   )
 }
